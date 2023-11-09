@@ -1,5 +1,5 @@
 {
-  "name": "ai-playground",
+  "name": "open-llm-playground",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -14,7 +14,6 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
-    "@heroicons/react": "^1.0.6",
     "@hookform/resolvers": "^3.3.2",
     "@radix-ui/react-avatar": "^1.0.4",
     "@radix-ui/react-label": "^2.0.2",
