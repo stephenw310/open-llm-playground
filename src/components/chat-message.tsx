@@ -26,7 +26,7 @@ const ChatMessage = ({
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
       className={cn(
-        "p-5 w-full flex items-start justify-between gap-x-5 border-b border-muted-foreground/30 cursor-pointer hover:bg-muted",
+        "flex w-full cursor-pointer items-start justify-between gap-x-5 border-b border-muted-foreground/30 p-5 hover:bg-muted",
         className,
       )}
       {...props}
@@ -36,18 +36,18 @@ const ChatMessage = ({
       ) : (
         <IconOpenAI className="mt-0.5" />
       )}
-      <div className="w-full font-light text-md whitespace-break-spaces">
+      <div className="text-md w-full whitespace-break-spaces font-light">
         {message.content as string}
       </div>
       <Button
         size="icon"
         variant="ghost"
-        className="w-fit h-fit"
+        className="h-fit w-fit"
         onClick={() => onDeleteMessage(message.id)}
       >
         <XCircle
           className={cn(
-            "w-5 h-5 ml-1 mt-1 hover:text-muted-foreground",
+            "ml-1 mt-1 h-5 w-5 hover:text-muted-foreground",
             isHover ? "text-muted-foreground/50" : "text-transparent",
           )}
         />

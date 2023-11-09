@@ -15,14 +15,14 @@ const SystemPromptInput = ({
   return (
     <div
       className={cn(
-        "border p-2 border-muted-foreground/30 rounded-md w-full flex flex-col",
+        "flex w-full flex-col rounded-md border border-muted-foreground/30 p-2",
         className,
       )}
       {...props}
     >
-      <div className="px-3 pt-4 pb-1 text-xs font-medium">SYSTEM</div>
+      <div className="px-3 pb-1 pt-4 text-xs font-medium">SYSTEM</div>
       <Textarea
-        className="h-full font-light text-md focus-visible:ring-0 focus-visible:ring-transparent border-0 resize-none"
+        className="text-md h-full resize-none border-0 font-light focus-visible:ring-0 focus-visible:ring-transparent"
         placeholder="You are a helpful assistant."
         value={prompt}
         onChange={(e) => setPrompt(e.target.value)}

@@ -21,7 +21,7 @@ const ChatPanel = ({
 }: ChatPanelProps) => {
   return (
     <div>
-      <div className="mx-auto sm:max-w-2xl sm:px-4 space-y-1">
+      <div className="mx-auto space-y-1 sm:max-w-2xl sm:px-4">
         <div className="flex h-10 items-center justify-center">
           {isLoading ? (
             <Button

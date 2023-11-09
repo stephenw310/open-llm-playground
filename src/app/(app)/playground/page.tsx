@@ -2,7 +2,7 @@ import Playground from "@/components/playground";
 
 const PlaygroundPage = () => {
   return (
-    <div className="h-full p-6 flex">
+    <div className="flex h-full p-6">
       <Playground />
     </div>
   );

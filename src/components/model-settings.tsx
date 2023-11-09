@@ -30,7 +30,7 @@ const ModelSettings = ({
   };
 
   return (
-    <div className="hidden lg:flex lg:flex-col w-[240px] px-4 items-center gap-y-7">
+    <div className="hidden w-[240px] items-center gap-y-7 px-4 lg:flex lg:flex-col">
       <ModelSelect modelName={modelName} setModelName={setModelName} />
       <TemperatureSetting
         temperature={temperature}

@@ -10,7 +10,7 @@ import {
 const PgModeSelect = () => {
   return (
     <Select defaultValue="chat">
-      <SelectTrigger className="w-fit rounded-full bg-muted px-4 h-9 focus:ring-0 focus:ring-transparent gap-x-2">
+      <SelectTrigger className="h-9 w-fit gap-x-2 rounded-full bg-muted px-4 focus:ring-0 focus:ring-transparent">
         <SelectValue />
       </SelectTrigger>
       <SelectContent>

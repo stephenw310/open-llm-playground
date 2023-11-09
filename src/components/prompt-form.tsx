@@ -34,7 +34,7 @@ const PromptForm = ({
       }}
       ref={formRef}
     >
-      <div className="relative flex max-h-60 w-full items-center justify-between bg-background gap-x-4 p-0.5 pr-4 sm:rounded-md sm:border">
+      <div className="relative flex max-h-60 w-full items-center justify-between gap-x-4 bg-background p-0.5 pr-4 sm:rounded-md sm:border">
         <Textarea
           tabIndex={0}
           rows={1}
@@ -46,7 +46,7 @@ const PromptForm = ({
           }}
           placeholder="Tell me a dad joke..."
           spellCheck={false}
-          className="min-h-[60px] w-full resize-none bg-transparent px-4 py-[1.3rem] border-0 focus-within:outline-none focus-visible:ring-0 focus-visible:ring-transparent sm:text-sm"
+          className="min-h-[60px] w-full resize-none border-0 bg-transparent px-4 py-[1.3rem] focus-within:outline-none focus-visible:ring-0 focus-visible:ring-transparent sm:text-sm"
         />
         <Tooltip>
           <TooltipTrigger asChild>
@@ -58,7 +58,7 @@ const PromptForm = ({
               Submit
             </Button>
           </TooltipTrigger>
-          <TooltipContent className="flex gap-x-2 font-mono text-sm font-medium py-2">
+          <TooltipContent className="flex gap-x-2 py-2 font-mono text-sm font-medium">
             Submit
             <kbd className="pointer-events-none h-5 select-none rounded border bg-muted px-1.5 opacity-100">
               ⌘ + Enter

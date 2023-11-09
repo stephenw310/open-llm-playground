@@ -69,18 +69,18 @@ export default function Playground() {
   };
 
   return (
-    <div className="h-full w-full flex flex-col gap-y-6 justify-between md:flex-row gap-x-6">
+    <div className="flex h-full w-full flex-col justify-between gap-x-6 gap-y-6 md:flex-row">
       <SystemPromptInput
         prompt={systemMsg}
         setPrompt={setSystemMsg}
-        className="md:max-w-lg h-full"
+        className="h-full md:max-w-lg"
       />
-      <div className="w-full flex flex-col justify-between gap-y-4 md:overflow-hidden">
+      <div className="flex w-full flex-col justify-between gap-y-4 md:overflow-hidden">
         {messages.filter((message) => message.role !== "system").length ? (
           <ChatMessagesList
             messages={messages}
             onDeleteMessage={handleDelete}
-            className="overflow-auto max-h-[calc(100vh-18rem)]"
+            className="max-h-[calc(100vh-18rem)] overflow-auto"
           />
         ) : (
           <EmptyScreen />

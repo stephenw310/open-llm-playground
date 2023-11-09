@@ -11,11 +11,11 @@ const TemperatureSetting = ({
   setTemperature,
 }: TemperatureSettingsProps) => {
   return (
-    <div className="flex flex-col items-start gap-y-5 w-full">
-      <div className="flex justify-between w-full">
+    <div className="flex w-full flex-col items-start gap-y-5">
+      <div className="flex w-full justify-between">
         <div className="text-sm font-light">Temperature</div>
         <Input
-          className="w-12 h-6 p-1.5 border-muted-foreground/50 text-[13px] font-light text-end focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:ring-green-600"
+          className="h-6 w-12 border-muted-foreground/50 p-1.5 text-end text-[13px] font-light focus-visible:ring-1 focus-visible:ring-green-600 focus-visible:ring-offset-0"
           value={temperature}
           onChange={(e) => {
             const result = parseFloat(e.target.value);

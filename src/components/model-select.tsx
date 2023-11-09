@@ -15,18 +15,18 @@ interface ModelSelectProps {
 
 const ModelSelect = ({ modelName, setModelName }: ModelSelectProps) => {
   return (
-    <div className="flex flex-col items-start gap-y-3 w-full">
+    <div className="flex w-full flex-col items-start gap-y-3">
       <div className="text-sm font-light">Model</div>
       <Select
         defaultValue="gpt-3.5-turbo"
         value={modelName}
         onValueChange={(value) => setModelName(value)}
       >
-        <SelectTrigger className="w-[180px] h-9 border-muted-foreground/50 font-light focus:ring-offset-0 focus:ring-1 focus:ring-green-600 rounded-lg">
+        <SelectTrigger className="h-9 w-[180px] rounded-lg border-muted-foreground/50 font-light focus:ring-1 focus:ring-green-600 focus:ring-offset-0">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
-          <SelectGroup className="font-light text-sm">
+          <SelectGroup className="text-sm font-light">
             <SelectLabel>CHAT</SelectLabel>
             {/* TODO: Move model name and params to a config file later */}
             <SelectItem value="gpt-4-1106-preview">

@@ -34,15 +34,15 @@ const Sidebar = () => {
   const pathname = usePathname();
 
   return (
-    <div className="pt-4 flex flex-col items-center gap-y-2">
-      <Link href="/" className="mt-1 mb-4">
-        <IconOpenAI className="w-6 h-6" />
+    <div className="flex flex-col items-center gap-y-2 pt-4">
+      <Link href="/" className="mb-4 mt-1">
+        <IconOpenAI className="h-6 w-6" />
       </Link>
       {routes.map((route) => (
         <Link href={route.href} key={route.href}>
           <div
             className={cn(
-              "p-2 cursor-pointer rounded-lg",
+              "cursor-pointer rounded-lg p-2",
               pathname === route.href ? route.bgColor : "hover:bg-gray-100",
             )}
           >

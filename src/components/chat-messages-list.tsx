@@ -15,7 +15,7 @@ const ChatMessagesList = ({
   ...props
 }: ChatMessagesListProps) => {
   return (
-    <div className={cn("w-full flex flex-col", className)} {...props}>
+    <div className={cn("flex w-full flex-col", className)} {...props}>
       {messages
         .filter((message) => message.role !== "system")
         .map((message) => (

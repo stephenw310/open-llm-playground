@@ -2,15 +2,15 @@
 
 This is a clone of OpenAI's LLM model playground, built with Next.js 14, React, Tailwind CSS, [Shadcn UI](https://ui.shadcn.com/) and [Vercel AI SDK](https://sdk.vercel.ai/docs).
 
-<img width="1725" alt="Screenshot 2023-11-08 at 8 12 24 PM" src="https://github.com/stephenw310/open-llm-playground/assets/6902928/5a559464-2054-414d-b772-fdaa33ae23ee">
+<img width="1725" alt="main ui" src="https://github.com/stephenw310/open-llm-playground/assets/6902928/5a559464-2054-414d-b772-fdaa33ae23ee">
 
-## Features:
+## Features
 
-- Next 13 App Router
+- Next.js 13 App Router
 - Tailwind CSS + Shadcn UI for styling
 - Edge function streaming LLM responses
 - Fully configurable OpenAI models
-- Mobile responsiveness (WIP)
+- Mobile responsiveness
 
 ## Get started
 
