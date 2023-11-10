@@ -73,9 +73,9 @@ export default function Playground() {
       <SystemPromptInput
         prompt={systemMsg}
         setPrompt={setSystemMsg}
-        className="h-full md:max-w-lg"
+        className="h-full flex-1"
       />
-      <div className="flex w-full flex-col justify-between gap-y-4 md:overflow-hidden">
+      <div className="flex w-full flex-[2_1_0%] flex-col justify-between gap-y-4 md:overflow-hidden">
         {messages.filter((message) => message.role !== "system").length ? (
           <ChatMessagesList
             messages={messages}

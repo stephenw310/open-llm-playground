@@ -26,7 +26,7 @@ const ChatMessage = ({
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
       className={cn(
-        "flex w-full cursor-pointer items-start justify-between gap-x-5 border-b border-muted-foreground/30 p-5 hover:bg-muted",
+        "flex w-full cursor-pointer items-start justify-between gap-x-5 border-b border-muted-foreground/50 p-5 hover:bg-muted",
         className,
       )}
       {...props}
@@ -36,7 +36,7 @@ const ChatMessage = ({
       ) : (
         <IconOpenAI className="mt-0.5" />
       )}
-      <div className="text-md w-full whitespace-break-spaces font-light">
+      <div className="w-full whitespace-break-spaces font-light">
         {message.content as string}
       </div>
       <Button

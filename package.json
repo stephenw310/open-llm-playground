@@ -11,10 +11,22 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "**/*.tsx": ["eslint", "prettier --write --ignore-unknown"],
-    "**/*.ts": ["eslint", "prettier --write --ignore-unknown"],
-    "**/*.js": ["eslint", "prettier --write --ignore-unknown"],
-    "**/*.jsx": ["eslint", "prettier --write --ignore-unknown"]
+    "**/*.tsx": [
+      "eslint",
+      "prettier --write --ignore-unknown"
+    ],
+    "**/*.ts": [
+      "eslint",
+      "prettier --write --ignore-unknown"
+    ],
+    "**/*.js": [
+      "eslint",
+      "prettier --write --ignore-unknown"
+    ],
+    "**/*.jsx": [
+      "eslint",
+      "prettier --write --ignore-unknown"
+    ]
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
@@ -24,7 +36,6 @@
     "@radix-ui/react-slider": "^1.1.2",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tooltip": "^1.0.7",
-    "@tremor/react": "^3.10.1",
     "ai": "^2.2.21",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
