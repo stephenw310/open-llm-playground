@@ -33,7 +33,7 @@ const ModelSettings = ({
       <NumberSetting
         label="Maximum length"
         defaultValue={maxLength}
-        min={0}
+        min={1}
         max={4096}
         step={25}
         setValue={setMaxLength}

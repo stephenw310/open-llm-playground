@@ -6,11 +6,13 @@ import ChatMessage from "@/components/chat-message";
 interface ChatMessagesListProps extends React.HTMLAttributes<HTMLDivElement> {
   messages: Message[];
   onDeleteMessage: (id: string) => void;
+  onEditMessage: (id: string, content: string) => void;
 }
 
 const ChatMessagesList = ({
   messages,
   onDeleteMessage,
+  onEditMessage,
   className,
   ...props
 }: ChatMessagesListProps) => {
@@ -23,6 +25,7 @@ const ChatMessagesList = ({
             key={message.id}
             message={message}
             onDeleteMessage={onDeleteMessage}
+            onEditMessage={onEditMessage}
           />
         ))}
     </div>

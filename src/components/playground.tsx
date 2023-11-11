@@ -68,6 +68,14 @@ export default function Playground() {
     setMessages(messages.filter((message) => message.id !== id));
   };
 
+  const editMessage = (id: string, content: string) => {
+    setMessages(
+      messages.map((message) =>
+        message.id === id ? { ...message, content } : message,
+      ),
+    );
+  };
+
   return (
     <div className="flex h-full w-full flex-col justify-between gap-x-6 gap-y-6 md:flex-row">
       <SystemPromptInput
@@ -80,6 +88,7 @@ export default function Playground() {
           <ChatMessagesList
             messages={messages}
             onDeleteMessage={handleDelete}
+            onEditMessage={editMessage}
             className="max-h-[calc(100vh-18rem)] overflow-auto"
           />
         ) : (
