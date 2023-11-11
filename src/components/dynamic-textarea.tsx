@@ -16,7 +16,7 @@ const DynamicTextarea = React.forwardRef<
   // Combine refs - use parentRef if it's provided, otherwise use internalRef
   const combinedRef = (ref as RefObject<HTMLTextAreaElement>) || internalRef;
 
-  // Function to adjust the textarea height
+  // Function to auto adjust the textarea height given the content
   const adjustHeight = () => {
     const textarea = combinedRef.current;
     if (textarea) {
@@ -29,6 +29,16 @@ const DynamicTextarea = React.forwardRef<
   useEffect(() => {
     adjustHeight();
   }, [props.value]);
+
+  // Adjust height when resize happens
+  useEffect(() => {
+    window.addEventListener("resize", adjustHeight);
+
+    // Cleanup function to remove the event listener
+    return () => {
+      window.removeEventListener("resize", adjustHeight);
+    };
+  }, []);
 
   return (
     <textarea

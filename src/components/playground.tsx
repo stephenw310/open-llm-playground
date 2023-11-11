@@ -10,6 +10,7 @@ import EmptyScreen from "@/components/empty-screen";
 import ChatMessagesList from "@/components/chat-messages-list";
 import SystemPromptInput from "./system-prompt-input";
 import ModelSettings from "@/components/model-settings";
+import { MessageRoleType } from "@/lib/types";
 
 export default function Playground() {
   const [systemMsg, setSystemMsg] = useState<string>("");
@@ -64,7 +65,7 @@ export default function Playground() {
     handleSubmit(e);
   };
 
-  const handleDelete = (id: string) => {
+  const deleteMessage = (id: string) => {
     setMessages(messages.filter((message) => message.id !== id));
   };
 
@@ -72,6 +73,15 @@ export default function Playground() {
     setMessages(
       messages.map((message) =>
         message.id === id ? { ...message, content } : message,
+      ),
+    );
+  };
+
+  const changeMessageRole = (id: string, currentRole: MessageRoleType) => {
+    const role = currentRole === "user" ? "assistant" : "user";
+    setMessages(
+      messages.map((message) =>
+        message.id === id ? { ...message, role } : message,
       ),
     );
   };
@@ -87,8 +97,9 @@ export default function Playground() {
         {messages.filter((message) => message.role !== "system").length ? (
           <ChatMessagesList
             messages={messages}
-            onDeleteMessage={handleDelete}
+            onDeleteMessage={deleteMessage}
             onEditMessage={editMessage}
+            onChangeRole={changeMessageRole}
             className="max-h-[calc(100vh-18rem)] overflow-auto"
           />
         ) : (
