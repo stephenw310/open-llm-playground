@@ -22,7 +22,7 @@ const ModelSelect = ({ modelName, setModelName }: ModelSelectProps) => {
         value={modelName}
         onValueChange={(value) => setModelName(value)}
       >
-        <SelectTrigger className="h-9 w-[180px] rounded-lg border-muted-foreground/50 font-light focus:ring-1 focus:ring-green-600 focus:ring-offset-0">
+        <SelectTrigger className="h-9 w-[180px] rounded-lg border-muted-foreground/50 font-light focus:ring-1 focus:ring-offset-0">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>

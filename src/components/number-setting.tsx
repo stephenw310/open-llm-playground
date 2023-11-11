@@ -46,7 +46,7 @@ const NumberSetting = ({
       <div className="flex w-full justify-between">
         <div className="text-sm font-light">{label}</div>
         <Input
-          className="h-6 w-12 border-muted-foreground/50 p-1.5 text-end text-[13px] font-light focus-visible:ring-1 focus-visible:ring-green-600 focus-visible:ring-offset-0"
+          className="h-6 w-12 border-muted-foreground/50 p-1.5 text-end text-[13px] font-light focus-visible:ring-1 focus-visible:ring-offset-0"
           value={inputText}
           onChange={(e) => {
             setInputText(e.target.value);

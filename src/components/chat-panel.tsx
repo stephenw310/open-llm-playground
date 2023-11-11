@@ -27,7 +27,7 @@ const ChatPanel = ({
             <Button
               variant="outline"
               onClick={() => stop()}
-              className="bg-background"
+              className="h-auto bg-background px-3 py-2 focus-visible:ring-1"
             >
               <IconStop className="mr-2" />
               Stop generating
@@ -37,7 +37,7 @@ const ChatPanel = ({
               <Button
                 variant="outline"
                 onClick={() => reload()}
-                className="bg-background"
+                className="h-auto bg-background px-3 py-2 focus-visible:ring-1"
               >
                 <IconRefresh className="mr-2" />
                 Regenerate response

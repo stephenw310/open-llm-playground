@@ -1,6 +1,6 @@
 "use client";
 
-import { XCircle } from "lucide-react";
+import { MinusCircle } from "lucide-react";
 import { Message } from "ai/react";
 import { useState } from "react";
 
@@ -61,17 +61,17 @@ const ChatMessage = ({
           setIsFocus(true);
         }}
         onBlur={() => setIsFocus(false)}
-        className="p-3 font-light focus-visible:ring-green-600"
+        className="p-3 font-light"
       />
       <Button
         size="icon"
         variant="ghost"
-        className="h-fit w-fit"
+        className="ml-1 mt-3.5 h-fit w-fit rounded-full focus-visible:ring-1 focus-visible:ring-offset-0"
         onClick={() => onDeleteMessage(message.id)}
       >
-        <XCircle
+        <MinusCircle
           className={cn(
-            "ml-1 mt-3.5 h-5 w-5 hover:text-muted-foreground",
+            "h-5 w-5 hover:text-muted-foreground",
             isHover || isFocus
               ? "text-muted-foreground/50"
               : "text-transparent",

@@ -25,12 +25,12 @@ const DynamicTextarea = React.forwardRef<
     }
   };
 
-  // Adjust the height when the value changes
+  // Adjust height when the value changes
   useEffect(() => {
     adjustHeight();
   }, [props.value]);
 
-  // Adjust height when resize happens
+  // Adjust height when window resize happens
   useEffect(() => {
     window.addEventListener("resize", adjustHeight);
 

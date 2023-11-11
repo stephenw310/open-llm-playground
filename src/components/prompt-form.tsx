@@ -52,15 +52,15 @@ const PromptForm = ({
           <TooltipTrigger asChild>
             <Button
               type="submit"
-              className="w-18 h-10 bg-green-600 hover:bg-green-700 focus-visible:ring-green-600"
+              className="h-auto w-auto bg-green-600 p-2 hover:bg-green-700"
               disabled={isLoading || input === ""}
             >
               Submit
             </Button>
           </TooltipTrigger>
-          <TooltipContent className="mb-2 flex gap-x-2 py-2 font-mono text-sm font-medium">
+          <TooltipContent className="mb-2 flex gap-x-2 rounded-lg bg-slate-700 py-2 font-mono text-sm font-medium text-white">
             Submit
-            <kbd className="pointer-events-none h-5 select-none rounded border bg-muted px-1.5 opacity-100">
+            <kbd className="pointer-events-none h-5 select-none rounded border border-slate-600 bg-slate-600 px-1.5 opacity-100">
               ⌘ + Enter
             </kbd>
           </TooltipContent>

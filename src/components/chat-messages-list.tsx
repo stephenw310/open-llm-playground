@@ -22,15 +22,16 @@ const ChatMessagesList = ({
 }: ChatMessagesListProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Scroll to the bottom when the content changes
+  // Scroll to the bottom when the last message content changes
   // This is due to textarea auto expanding height
+  // TODO: Fix scrolling when user is editing the last message
   useEffect(() => {
     // Scroll the container to the bottom
     const container = containerRef.current;
     if (container) {
       container.scrollTop = container.scrollHeight;
     }
-  }, [messages]);
+  }, [messages.slice(-1)[0]?.content]);
 
   return (
     <div
