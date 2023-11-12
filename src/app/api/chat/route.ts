@@ -13,7 +13,7 @@ export async function POST(req: Request) {
   try {
     const { messages, modelName, temperature, maxLength } = await req.json();
 
-    // console.log(messages, modelName, temperature, maxLength);
+    console.log(messages, modelName, temperature, maxLength);
     const response = await openai.chat.completions
       .create({
         model: modelName,

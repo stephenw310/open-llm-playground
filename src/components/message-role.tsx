@@ -1,8 +1,8 @@
-import { HTMLAttributes } from "react";
+import React from "react";
 
 import { cn } from "@/lib/utils";
 
-interface MessageRoleProps extends HTMLAttributes<HTMLDivElement> {
+interface MessageRoleProps extends React.HTMLAttributes<HTMLDivElement> {
   role: string;
   isHover: boolean;
 }

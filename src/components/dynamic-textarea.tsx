@@ -1,16 +1,11 @@
-import React, {
-  RefObject,
-  TextareaHTMLAttributes,
-  useEffect,
-  useRef,
-} from "react";
+import React, { type RefObject, useEffect, useRef } from "react";
 
 import { cn } from "@/lib/utils";
 
 // textarea that renders content like div and allow click to edit
 const DynamicTextarea = React.forwardRef<
   HTMLTextAreaElement,
-  TextareaHTMLAttributes<HTMLTextAreaElement>
+  React.TextareaHTMLAttributes<HTMLTextAreaElement>
 >(({ className, ...props }, ref) => {
   const internalRef = useRef<HTMLTextAreaElement>(null); // Internal ref
   // Combine refs - use parentRef if it's provided, otherwise use internalRef

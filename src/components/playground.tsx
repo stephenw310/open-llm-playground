@@ -10,13 +10,16 @@ import EmptyScreen from "@/components/empty-screen";
 import ChatMessagesList from "@/components/chat-messages-list";
 import SystemPromptInput from "./system-prompt-input";
 import ModelSettings from "@/components/model-settings";
-import { MessageRoleType } from "@/lib/types";
+import { type MessageRoleType } from "@/lib/types";
+import { type ModelConfig, Models } from "@/lib/config";
 
 export default function Playground() {
   const [systemMsg, setSystemMsg] = useState<string>("");
-  const [temperature, setTemperature] = useState(0.1);
-  const [maxLength, setMaxLength] = useState(256);
-  const [modelName, setModelName] = useState("gpt-3.5-turbo");
+  const [modelConfig, setModelConfig] = useState<ModelConfig>(Models[2]);
+  const [temperature, setTemperature] = useState(
+    modelConfig?.defaultTemperature,
+  );
+  const [maxLength, setMaxLength] = useState(modelConfig?.defaultTokens);
 
   // ai sdk hook
   const {
@@ -30,7 +33,7 @@ export default function Playground() {
   } = useChat({
     api: "/api/chat",
     body: {
-      modelName,
+      modelName: modelConfig?.modelName,
       temperature,
       maxLength,
     },
@@ -118,11 +121,13 @@ export default function Playground() {
         />
       </div>
       <ModelSettings
-        modelName={modelName}
-        setModelName={setModelName}
-        temperature={temperature}
+        model={modelConfig}
+        setModel={(modelName) => {
+          setModelConfig(
+            Models.find((model) => model.modelName === modelName) ?? Models[0],
+          );
+        }}
         setTemperature={setTemperature}
-        maxLength={maxLength}
         setMaxLength={setMaxLength}
       />
     </div>

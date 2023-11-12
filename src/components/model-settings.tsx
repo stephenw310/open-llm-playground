@@ -1,40 +1,36 @@
 import NumberSetting from "@/components/number-setting";
 import ModelSelect from "@/components/model-select";
+import { type ModelConfig } from "@/lib/config";
 
 interface ModelSettingsProps {
-  modelName: string;
-  temperature: number;
-  maxLength: number;
-  setModelName: (modelName: string) => void;
+  model: ModelConfig;
+  setModel: (modelName: string) => void;
   setTemperature: (temperature: number) => void;
   setMaxLength: (maxLength: number) => void;
 }
 
 const ModelSettings = ({
-  modelName,
-  temperature,
-  maxLength,
-  setModelName,
+  model,
+  setModel,
   setTemperature,
   setMaxLength,
 }: ModelSettingsProps) => {
   return (
     <div className="hidden w-[240px] items-center gap-y-7 px-4 lg:flex lg:flex-col">
-      <ModelSelect modelName={modelName} setModelName={setModelName} />
-      {/* TODO: Move these ranges to a model config file later */}
+      <ModelSelect modelName={model.modelName} setModelName={setModel} />
       <NumberSetting
         label="Temperature"
-        defaultValue={temperature}
-        min={0}
-        max={1}
+        defaultValue={model.defaultTemperature}
+        min={model.minTemperature}
+        max={model.maxTemperature}
         step={0.01}
         setValue={setTemperature}
       />
       <NumberSetting
         label="Maximum length"
-        defaultValue={maxLength}
-        min={1}
-        max={4096}
+        defaultValue={model.defaultTokens}
+        min={model.minTokens}
+        max={model.maxTokens}
         step={25}
         setValue={setMaxLength}
         disableFloat={true}
