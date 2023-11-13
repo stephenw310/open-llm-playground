@@ -5,7 +5,7 @@ import { Slider } from "@/components/ui/slider";
 
 interface NumberSetttingProps {
   label: string;
-  defaultValue: number;
+  initialValue: number;
   min: number;
   max: number;
   step: number;
@@ -15,15 +15,15 @@ interface NumberSetttingProps {
 
 const NumberSetting = ({
   label,
-  defaultValue,
+  initialValue,
   min,
   max,
   step,
   setValue,
   disableFloat = false,
 }: NumberSetttingProps) => {
-  const [inputText, setInputText] = useState(String(defaultValue));
-  const [lastValidInput, setLastValidInput] = useState(String(defaultValue));
+  const [inputText, setInputText] = useState(String(initialValue));
+  const [lastValidInput, setLastValidInput] = useState(String(initialValue));
 
   const parseFunc = disableFloat ? parseInt : parseFloat;
 
@@ -40,6 +40,12 @@ const NumberSetting = ({
       setValue(parseFunc(inputText));
     }
   }, [inputText]);
+
+  // reset input text when initialValue changes
+  useEffect(() => {
+    setInputText(String(initialValue));
+    setLastValidInput(String(initialValue));
+  }, [initialValue]);
 
   return (
     <div className="flex w-full flex-col items-start gap-y-5">

@@ -11,15 +11,11 @@ import ChatMessagesList from "@/components/chat-messages-list";
 import SystemPromptInput from "./system-prompt-input";
 import ModelSettings from "@/components/model-settings";
 import { type MessageRoleType } from "@/lib/types";
-import { type ModelConfig, Models } from "@/lib/config";
+import { useModelSettings } from "@/components/model-context";
 
 export default function Playground() {
   const [systemMsg, setSystemMsg] = useState<string>("");
-  const [modelConfig, setModelConfig] = useState<ModelConfig>(Models[2]);
-  const [temperature, setTemperature] = useState(
-    modelConfig?.defaultTemperature,
-  );
-  const [maxLength, setMaxLength] = useState(modelConfig?.defaultTokens);
+  const { modelSettings } = useModelSettings();
 
   // ai sdk hook
   const {
@@ -33,9 +29,9 @@ export default function Playground() {
   } = useChat({
     api: "/api/chat",
     body: {
-      modelName: modelConfig?.modelName,
-      temperature,
-      maxLength,
+      modelName: modelSettings.modelName,
+      temperature: modelSettings.temperature,
+      maxLength: modelSettings.maxLength,
     },
     async onResponse(response) {
       if (response.status === 500) {
@@ -90,20 +86,21 @@ export default function Playground() {
   };
 
   return (
-    <div className="flex h-full w-full flex-col justify-between gap-x-6 gap-y-6 md:flex-row">
+    <div className="flex h-full w-full flex-col justify-between gap-x-6 md:flex-row">
       <SystemPromptInput
         prompt={systemMsg}
         setPrompt={setSystemMsg}
         className="h-full flex-1"
       />
-      <div className="flex w-full flex-[2_1_0%] flex-col justify-between gap-y-4 md:overflow-hidden">
+      <div className="h-full max-h-3 border-y bg-muted-foreground/10 md:hidden" />
+      <div className="flex w-full flex-[1.5_1_0%] flex-col justify-between gap-y-4 overflow-hidden pt-4 md:flex-[2_1_0%] md:pt-0">
         {messages.filter((message) => message.role !== "system").length ? (
           <ChatMessagesList
             messages={messages}
             onDeleteMessage={deleteMessage}
             onEditMessage={editMessage}
             onChangeRole={changeMessageRole}
-            className="max-h-[calc(100vh-18rem)] overflow-auto"
+            className="max-h-[calc(100vh-23rem)] overflow-auto md:max-h-[calc(100vh-18rem)]"
           />
         ) : (
           <EmptyScreen />
@@ -120,16 +117,7 @@ export default function Playground() {
           messages={messages}
         />
       </div>
-      <ModelSettings
-        model={modelConfig}
-        setModel={(modelName) => {
-          setModelConfig(
-            Models.find((model) => model.modelName === modelName) ?? Models[0],
-          );
-        }}
-        setTemperature={setTemperature}
-        setMaxLength={setMaxLength}
-      />
+      <ModelSettings className="hidden lg:flex" />
     </div>
   );
 }

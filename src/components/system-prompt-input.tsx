@@ -15,7 +15,7 @@ const SystemPromptInput = ({
   return (
     <div
       className={cn(
-        "flex w-full flex-col rounded-md border border-muted-foreground/50 p-2",
+        "flex w-full flex-col rounded-md border-muted-foreground/50 p-2 md:border",
         className,
       )}
       {...props}

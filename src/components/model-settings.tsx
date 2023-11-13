@@ -1,38 +1,59 @@
 import NumberSetting from "@/components/number-setting";
 import ModelSelect from "@/components/model-select";
-import { type ModelConfig } from "@/lib/config";
+import { cn } from "@/lib/utils";
+import { useModelSettings } from "@/components/model-context";
+import { Models } from "@/lib/config";
 
-interface ModelSettingsProps {
-  model: ModelConfig;
-  setModel: (modelName: string) => void;
-  setTemperature: (temperature: number) => void;
-  setMaxLength: (maxLength: number) => void;
-}
+interface ModelSettingsProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-const ModelSettings = ({
-  model,
-  setModel,
-  setTemperature,
-  setMaxLength,
-}: ModelSettingsProps) => {
+const ModelSettings = ({ className, ...props }: ModelSettingsProps) => {
+  const { modelSettings, setModelSettings } = useModelSettings();
+  const modelConfig =
+    Models.find((model) => model.modelName === modelSettings.modelName) ??
+    Models[0];
+
   return (
-    <div className="hidden w-[240px] items-center gap-y-7 px-4 lg:flex lg:flex-col">
-      <ModelSelect modelName={model.modelName} setModelName={setModel} />
+    <div
+      className={cn(
+        "flex w-[240px] flex-col items-center gap-y-7 px-4",
+        className,
+      )}
+      {...props}
+    >
+      <ModelSelect
+        modelName={modelSettings.modelName}
+        setModelName={(modelName) => {
+          setModelSettings({
+            ...modelSettings,
+            modelName,
+          });
+        }}
+      />
       <NumberSetting
         label="Temperature"
-        defaultValue={model.defaultTemperature}
-        min={model.minTemperature}
-        max={model.maxTemperature}
+        initialValue={modelSettings.temperature}
+        min={modelConfig.minTemperature}
+        max={modelConfig.maxTemperature}
         step={0.01}
-        setValue={setTemperature}
+        setValue={(temperature) => {
+          setModelSettings({
+            ...modelSettings,
+            temperature,
+          });
+        }}
       />
       <NumberSetting
         label="Maximum length"
-        defaultValue={model.defaultTokens}
-        min={model.minTokens}
-        max={model.maxTokens}
+        initialValue={modelSettings.maxLength}
+        min={modelConfig.minTokens}
+        max={modelConfig.maxTokens}
         step={25}
-        setValue={setMaxLength}
+        setValue={(maxLength) => {
+          setModelSettings({
+            ...modelSettings,
+            maxLength,
+          });
+        }}
         disableFloat={true}
       />
     </div>
