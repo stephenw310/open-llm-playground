@@ -19,7 +19,7 @@ const ModelSelect = ({ modelName, setModelName }: ModelSelectProps) => {
     <div className="flex w-full flex-col items-start gap-y-3">
       <div className="text-sm font-light">Model</div>
       <Select value={modelName} onValueChange={(value) => setModelName(value)}>
-        <SelectTrigger className="h-9 w-[180px] rounded-lg border-muted-foreground/50 font-light focus:ring-1 focus:ring-offset-0">
+        <SelectTrigger className="h-9 w-full rounded-lg border-muted-foreground/50 font-light focus:ring-1 focus:ring-offset-0">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>

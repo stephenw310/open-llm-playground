@@ -30,20 +30,31 @@ const routes = [
   },
 ];
 
-const Sidebar = () => {
+interface SidebarProps {
+  isMobile?: boolean;
+}
+
+const Sidebar = ({ isMobile }: SidebarProps) => {
   const pathname = usePathname();
 
   return (
     <div className="flex flex-col items-center gap-y-2 pt-4">
-      <Link href="/" className="mb-4 mt-1">
-        <IconOpenAI className="h-6 w-6" />
-      </Link>
+      {!isMobile && (
+        <Link href="/" className="mb-4 mt-1">
+          <IconOpenAI className="h-6 w-6" />
+        </Link>
+      )}
       {routes.map((route) => (
-        <Link href={route.href} key={route.href}>
+        <Link
+          href={route.href}
+          key={route.href}
+          className={`${isMobile ? "w-full" : "w-fit"}`}
+        >
           <div
             className={cn(
-              "cursor-pointer rounded-lg p-2",
+              "flex cursor-pointer items-center gap-x-3 rounded-lg py-2",
               pathname === route.href ? route.bgColor : "hover:bg-gray-100",
+              isMobile ? "px-4" : "px-2",
             )}
           >
             <route.icon
@@ -52,6 +63,18 @@ const Sidebar = () => {
                 pathname === route.href ? route.color : "text-muted-foreground",
               )}
             />
+            {isMobile && (
+              <div
+                className={cn(
+                  "text-sm font-medium",
+                  pathname === route.href
+                    ? route.color
+                    : "font-normal text-muted-foreground",
+                )}
+              >
+                {route.label}
+              </div>
+            )}
           </div>
         </Link>
       ))}

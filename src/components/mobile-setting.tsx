@@ -18,8 +18,8 @@ const MobileSettings = () => {
           <Settings size="20" />
         </Button>
       </SheetTrigger>
-      <SheetContent side={"right"}>
-        <ModelSettings className="w-full" />
+      <SheetContent side={"right"} className="w-fit">
+        <ModelSettings />
       </SheetContent>
     </Sheet>
   );

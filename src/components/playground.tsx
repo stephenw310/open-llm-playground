@@ -100,7 +100,7 @@ export default function Playground() {
             onDeleteMessage={deleteMessage}
             onEditMessage={editMessage}
             onChangeRole={changeMessageRole}
-            className="max-h-[calc(100vh-23rem)] overflow-auto md:max-h-[calc(100vh-18rem)]"
+            className="max-h-[calc(100vh-26rem)] overflow-auto md:max-h-[calc(100vh-18rem)]"
           />
         ) : (
           <EmptyScreen />
