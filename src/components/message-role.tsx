@@ -16,7 +16,7 @@ const MessageRole = ({
   return (
     <div
       className={cn(
-        "w-fit rounded-md p-1.5 text-sm font-medium uppercase",
+        "w-fit rounded-md p-1.5 text-xs font-medium uppercase md:text-sm",
         isHover ? "bg-muted-foreground/20" : "bg-transparent",
         className,
       )}

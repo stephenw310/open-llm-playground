@@ -33,7 +33,7 @@ const ChatMessage = ({
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
       className={cn(
-        "flex w-full cursor-pointer items-start justify-between gap-x-5 border-b border-muted-foreground/50 p-5",
+        "flex w-full cursor-pointer items-start justify-between gap-x-5 border-b border-muted-foreground/50 p-1 md:p-5",
         isHover || isFocus ? "bg-muted" : "bg-transparent",
         className,
       )}
@@ -61,12 +61,12 @@ const ChatMessage = ({
           setIsFocus(true);
         }}
         onBlur={() => setIsFocus(false)}
-        className="p-3 font-light"
+        className="p-3 text-xs font-light md:text-base"
       />
       <Button
         size="icon"
         variant="ghost"
-        className="ml-1 mt-3.5 h-fit w-fit rounded-full focus-visible:ring-1 focus-visible:ring-offset-0"
+        className="ml-1 mt-2.5 h-fit w-fit rounded-full focus-visible:ring-1 focus-visible:ring-offset-0 md:mt-3.5"
         onClick={() => onDeleteMessage(message.id)}
       >
         <MinusCircle

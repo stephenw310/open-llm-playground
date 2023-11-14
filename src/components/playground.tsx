@@ -93,14 +93,14 @@ export default function Playground() {
         className="h-full flex-1"
       />
       <div className="h-full max-h-3 border-y bg-muted-foreground/10 md:hidden" />
-      <div className="flex w-full flex-[1.5_1_0%] flex-col justify-between gap-y-4 overflow-hidden pt-4 md:flex-[2_1_0%] md:pt-0">
+      <div className="flex w-full flex-[2_1_0%] flex-col justify-between gap-y-4 overflow-hidden pt-4 md:pt-0">
         {messages.filter((message) => message.role !== "system").length ? (
           <ChatMessagesList
             messages={messages}
             onDeleteMessage={deleteMessage}
             onEditMessage={editMessage}
             onChangeRole={changeMessageRole}
-            className="max-h-[calc(100vh-26rem)] overflow-auto md:max-h-[calc(100vh-18rem)]"
+            className="max-h-[calc(100vh-28rem)] overflow-auto md:max-h-[calc(100vh-18rem)]"
           />
         ) : (
           <EmptyScreen />

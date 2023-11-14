@@ -46,7 +46,7 @@ const PromptForm = ({
           }}
           placeholder="Tell me a dad joke..."
           spellCheck={false}
-          className="min-h-[60px] w-full resize-none border-0 bg-transparent px-4 py-[1.3rem] focus-within:outline-none focus-visible:ring-0 focus-visible:ring-transparent sm:text-sm"
+          className="my-0 min-h-0 w-full resize-none border-0 bg-transparent px-4 focus-within:outline-none focus-visible:ring-0 focus-visible:ring-transparent sm:text-sm md:min-h-[60px] md:py-[1.3rem]"
         />
         <Tooltip>
           <TooltipTrigger asChild>
