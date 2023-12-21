@@ -7,7 +7,7 @@ import MobileSidebar from "@/components/mobile-sidebar";
 const PlaygroundLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="relative h-full">
-      <div className="z-[80] hidden h-full border-r md:fixed md:inset-y-0 md:flex md:w-14 md:flex-col">
+      <div className="z-20 hidden h-full border-r md:fixed md:inset-y-0 md:flex md:w-14 md:flex-col">
         <Sidebar />
       </div>
       <div className="absolute inset-x-0 h-12 w-full border-b md:hidden">

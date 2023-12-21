@@ -4,14 +4,14 @@ import { NextResponse } from "next/server";
 
 export const runtime = "edge";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY!,
-  organization: process.env.OPENAI_ORGANIZATION!,
-});
-
 export async function POST(req: Request) {
   try {
-    const { messages, modelName, temperature, maxLength } = await req.json();
+    const { messages, modelName, temperature, maxLength, apiKey } =
+      await req.json();
+
+    const openai = new OpenAI({
+      apiKey,
+    });
 
     // console.log(messages, modelName, temperature, maxLength);
     const response = await openai.chat.completions

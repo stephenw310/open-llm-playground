@@ -13,7 +13,7 @@ This is a clone of OpenAI's LLM model playground, built with Next.js 14, React, 
 - Configurable OpenAI models
 - Mobile responsive
 
-## Get started
+## Running locally
 
 ### Prerequisites
 
@@ -25,15 +25,14 @@ This is a clone of OpenAI's LLM model playground, built with Next.js 14, React, 
 npm i
 ```
 
-### Setup .env file
-
-```shell
-OPENAI_API_KEY=<Your OpenAI API Key>
-OPENAI_ORGANIZATION=<Your OpenAI Organization ID>
-```
-
 ### Start the app
 
 ```shell
 npm run dev
 ```
+
+
+## Deploy Your Own
+You can deploy your own version to Vercel with one click:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?https://github.com/stephenw310/open-llm-playground)
