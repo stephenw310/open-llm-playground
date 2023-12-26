@@ -7,7 +7,7 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import Sidebar from "@/components/sidebar";
-import { IconOpenAI } from "@/components/icons";
+import { IconLogo } from "@/components/icons";
 
 const MobileSidebar = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -21,7 +21,7 @@ const MobileSidebar = () => {
   return (
     <div className="flex items-center justify-between px-3 py-1">
       <Link href="/" className="ml-2">
-        <IconOpenAI className="h-6 w-6" />
+        <IconLogo className="h-6 w-6" />
       </Link>
       <Sheet>
         <SheetTrigger>

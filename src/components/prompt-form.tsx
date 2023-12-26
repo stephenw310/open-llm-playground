@@ -52,7 +52,8 @@ const PromptForm = ({
           <TooltipTrigger asChild>
             <Button
               type="submit"
-              className="h-auto w-auto bg-green-600 p-2 hover:bg-green-700"
+              variant="custom"
+              size="auto"
               disabled={isLoading || input === ""}
             >
               Submit

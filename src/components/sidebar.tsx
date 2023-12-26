@@ -4,7 +4,7 @@ import { Bot, Settings2, TerminalSquare } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
-import { IconOpenAI } from "./icons";
+import { IconLogo } from "./icons";
 
 const routes = [
   {
@@ -41,7 +41,7 @@ const Sidebar = ({ isMobile }: SidebarProps) => {
     <div className="flex flex-col items-center gap-y-2 pt-4">
       {!isMobile && (
         <Link href="/" className="mb-4 mt-1">
-          <IconOpenAI className="h-6 w-6" />
+          <IconLogo className="h-6 w-6" />
         </Link>
       )}
       {routes.map((route) => (

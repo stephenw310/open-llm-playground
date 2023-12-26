@@ -1,13 +1,14 @@
 "use client";
 
-import React, { createContext, useContext, useState } from "react";
-
-import { ModelConfig } from "@/lib/config";
+import React, { createContext, useContext } from "react";
+import { useLocalStorage } from "@/lib/hooks/use-local-storage";
+import { Models } from "@/lib/config";
 
 interface ModelSettings {
   modelName: string;
   temperature: number;
   maxLength: number;
+  apiKey: string | null;
 }
 
 // Define the shape of the context state
@@ -19,20 +20,23 @@ interface ModelContextState {
 const ModelSettingsContext = createContext<ModelContextState | null>(null);
 
 interface ModelSettingsProviderProps {
-  defaultModel: ModelConfig;
   children: React.ReactNode;
 }
 
 // Create a provider component
 export const ModelSettingsProvider = ({
-  defaultModel,
   children,
 }: ModelSettingsProviderProps) => {
-  const [modelSettings, setModelSettings] = useState<ModelSettings>({
-    modelName: defaultModel.modelName,
-    temperature: defaultModel.defaultTemperature,
-    maxLength: defaultModel.defaultTokens,
-  });
+  // use local storage for persisting model settings
+  const [modelSettings, setModelSettings] = useLocalStorage<ModelSettings>(
+    "model-settings",
+    {
+      modelName: Models[0].modelName,
+      temperature: Models[0].defaultTemperature,
+      maxLength: Models[0].defaultTokens,
+      apiKey: null,
+    },
+  );
 
   return (
     <ModelSettingsContext.Provider value={{ modelSettings, setModelSettings }}>

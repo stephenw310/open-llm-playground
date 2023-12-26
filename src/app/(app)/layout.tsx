@@ -1,8 +1,8 @@
 import { ModelSettingsProvider } from "@/components/model-context";
 import Navbar from "@/components/navbar";
 import Sidebar from "@/components/sidebar";
-import { Models } from "@/lib/config";
 import MobileSidebar from "@/components/mobile-sidebar";
+// import Footer from "@/components/footer";
 
 const PlaygroundLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -14,10 +14,11 @@ const PlaygroundLayout = ({ children }: { children: React.ReactNode }) => {
         <MobileSidebar />
       </div>
       <main className="flex h-full flex-col pt-12 md:pl-14 md:pt-0">
-        <ModelSettingsProvider defaultModel={Models[0]}>
+        <ModelSettingsProvider>
           <Navbar />
           {children}
         </ModelSettingsProvider>
+        {/* <Footer /> */}
       </main>
     </div>
   );

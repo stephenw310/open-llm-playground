@@ -31,8 +31,8 @@ npm i
 npm run dev
 ```
 
-
 ## Deploy Your Own
+
 You can deploy your own version to Vercel with one click:
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?https://github.com/stephenw310/open-llm-playground)
